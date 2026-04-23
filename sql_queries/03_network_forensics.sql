@@ -1,5 +1,5 @@
 -- STAGE 3: MASTERMIND ATTRIBUTION (SELLER CLUSTERING)
--- Objective: Group fragmented listings to identify coordinated threat actor networks.
+-- Objective: Identify coordinated threat actor networks.
 
 SELECT 
     seller_id, 
@@ -7,9 +7,9 @@ SELECT
     COUNT(listing_id) AS total_ghost_listings,
     SUM(units_sold) AS total_stolen_volume,
     MIN(listing_date) AS first_entry_date,
-    -- Identifies if the seller is multi-region
     COUNT(DISTINCT region) AS regional_reach 
 FROM Residual_Set
 GROUP BY seller_id
-HAVING total_ghost_listings > 5 -- Filters for coordinated activity vs. one-off sellers
+-- FIX: Using raw aggregate to follow SQL execution order (HAVING processed before SELECT)
+HAVING COUNT(listing_id) > 5 
 ORDER BY total_stolen_volume DESC;
