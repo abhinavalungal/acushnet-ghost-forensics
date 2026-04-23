@@ -1,6 +1,5 @@
-
 -- STAGE 1: ISOLATING THE RESIDUAL SET
--- Objective: Separate authorized Acushnet sales from unauthorized "Ghost" entities.
+-- Separates authorized Acushnet sales from unauthorized "Ghost" entities.
 
 WITH Residual_Set AS (
     SELECT p.*
@@ -9,9 +8,8 @@ WITH Residual_Set AS (
         ON  p.category = s.category
         AND p.region = s.region
         AND p.price_band = s.price_band
-    -- ISOLATION LOGIC:
-    WHERE s.brand_id IS NULL -- Only returns listings with NO internal match
-      -- FALSE POSITIVE SAFEGUARD: Fuzzy filter for authorized Acushnet entities
+    WHERE s.brand_id IS NULL -- Isolates listings with no matching internal record
+      -- FALSE POSITIVE SAFEGUARD: Fuzzy filter for authorized Acushnet brands
       AND NOT EXISTS (
           SELECT 1 FROM (
               SELECT 'Titleist' AS b UNION SELECT 'FootJoy' UNION 
