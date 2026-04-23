@@ -1,7 +1,7 @@
 <h1 align="center">Acushnet Ghost Brand Intelligence & Forensics</h1>
 
 <p align="center">
-  <img src="assets/image_183261.png" alt="Ghost Brand Data Forensics" width="800"/>
+  <img src="assets/banner.png" alt="Ghost Brand Data Forensics" width="800"/>
 </p>
 
 <br>
