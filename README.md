@@ -1,80 +1,54 @@
 <h1 align="center">Acushnet Ghost Brand Intelligence & Forensics</h1>
 
 <p align="center">
-  <img src="assets.jpg" alt="Ghost Brand Data Forensics" width="800"/>
+  <img src="asset.jpg" alt="Ghost Brand Data Forensics" width="800"/>
 </p>
 
 <br>
-  
-## Overview  
-This project provides a sophisticated SQL framework to identify and neutralize "Ghost Brands"—unauthorized shadow entities launched by competitors to cannibalize market share. By applying an "Anti-Join" methodology against internal sales data, this pipeline isolates anomalies, calculates financial exposure ($1.3M+ Risk), and identifies coordinated actor networks.
+
+## 📌 Executive Summary
+In Q4 2025, Acushnet’s flagship brands observed a localized sales decline in the APAC corridor. This project showcases the forensic data pipeline used to identify the root cause: **"Ghost Brands"**—competitors operating under fragmented identities to bypass tracking and aggressively undercut authorized pricing.
+
+By deploying this SQL toolkit, I identified a **$1.3M annualized revenue risk**, enabling the business team to pivot pricing and product strategies, successfully **stabilizing the market** and halting the sales decay.
 
 ---
 
-## Project Goals  
-- **Anomaly Detection** — Use "Residual Set" logic to mathematically isolate unauthorized listings.
-- **Financial Attribution** — Quantify the annualized revenue risk to the Acushnet Flagship brand.
-- **Forensic Intelligence** — Prove "Bad Faith" through review manipulation and metadata clustering.
-- **Strategic Enforcement** — Provide legal and compliance teams with specific seller IDs for de-platforming.
-- **Market Integrity** — Correlate competitor "Ghost" growth with internal sales decay to prove causality.
+## 🛠️ The Forensic Toolkit
+The project is organized into a four-stage intelligence pipeline located in the [`sql_queries/`](./sql_queries/) folder:
+
+1. **[Stage 1: Identification Logic](./sql_queries/01_identification_logic.sql)**
+   * **Logic:** Performs a multi-layered Anti-Join to isolate untracked marketplace listings.
+   * **Data Integrity Safeguard:** Implements **Fuzzy Matching** (`ILIKE %brand%`) to ensure authorized distributors (e.g., "Titleist Official Store") are not incorrectly flagged.
+
+2. **[Stage 2: Financial Impact Modeling](./sql_queries/02_financial_impact.sql)**
+   * **Logic:** Quantified the revenue drain by normalizing marketplace "Lifetime Units Sold" data.
+   * **Innovation:** Uses **Sales Velocity Modeling** (calculating daily run-rates) to provide an accurate 30-day "heartbeat" of the threat.
+
+3. **[Stage 3: Network Forensics](./sql_queries/03_network_forensics.sql)**
+   * **Logic:** Clusters fragmented listings to identify the "Mastermind" networks behind the activity.
+   * **Outcome:** Aggregates regional reach and catalog size to prioritize high-volume threat actors.
+
+4. **[Stage 4: Strategic Stabilization Tracker](./sql_queries/04_strategic_stabilization.sql)**
+   * **Logic:** Correlates Ghost Brand pressure with internal sales recovery.
+   * **Business Impact:** Measures the weekly "Rebound Delta" following strategic pivots in pricing and market positioning.
 
 ---
 
-## The Intelligence Pipeline
-
-### 1. The "Residual Set" Filter
-- Standardized messy marketplace titles using Regex and normalization.
-- Performed a **Multi-Key Anti-Join** against the `Internal_Sales_Ledger`.
-- Filtered out authorized Acushnet brands (**Titleist, FootJoy, Pinnacle, Scotty Cameron**) to isolate true intruders.
-
-### 2. Impact Quantification
-- Built window-function queries to calculate **Price-to-Mean Ratios**.
-- Projected a **$1.3M Annualized Revenue Risk** by analyzing current 30-day velocity.
-- Mapped regional saturation across APAC corridors (Singapore, Vietnam, Thailand).
-
-### 3. Forensic Attribution
-- Identified 34+ individual listings belonging to a single "Mastermind" entity via **Seller ID Clustering**.
-- Analyzed **Catalog Uniformity** (description character counts) to prove bot-driven automation.
-- Flagged unnatural **Review Capture Rates (>15%)** to provide evidence of platform manipulation (Brushing).
+## 📈 Business Outcomes
+* **Root Cause Discovery:** Isolated the Q4 decline to specific "Ghost" activity rather than broader market trends.
+* **Risk Quantified:** Modeled a $1.3M annual revenue leak, providing the financial justification for strategic intervention.
+* **Strategic Pivot:** Enabled the APAC business team to adjust pricing and product positioning, leading to a stabilized competitive stance and a halt in revenue decay.
 
 ---
 
-## Analytics Workflow
+## 🛡️ Methodology & Data Ethics
+* **Regional Focus:** Primary analysis conducted on marketplace data across **Singapore, Indonesia, Vietnam, Philippines, and Thailand**.
+* **De-duplication:** Implemented cross-platform logic to prevent double-counting listings active on both Lazada and Shopee.
+* **Velocity Normalization:** Corrected for "Lifetime Units" bias by using `GREATEST()` functions to handle brand-new listings (Day 0) without data loss.
+* **Privacy:** All specific seller IDs and internal financial identifiers have been anonymized for this public demonstration.
 
-### Stage 1: Identification (The "Brain")
-Isolates listings that match the category and price band of **ACUSHNET_FLAGSHIP** but lack internal authorization.
+<br>
 
-### Stage 2: Revenue Risk Modeling
-Translates unit sales loss into dollar-value exposure to justify executive intervention.
-
-### Stage 3: Legal & Enforcement
-Aggregates forensic evidence (Seller Attribution + Review Bot signals) for marketplace takedown requests.
-
----
-
-## Key Metrics & Outcomes
-- **$1.3M Revenue Risk** identified and localized to specific APAC regions.
-- **40% Index Point Drop** in Acushnet Flagship sales correlated directly to Ghost Brand entry.
-- **Forensic Proof** of coordinated attacks by a single parent entity using 30+ "Ghost" accounts.
-- **Zero-History Detection:** Identified brands achieving "Top Seller" status in <90 days without brand history.
-
----
-
-## Technical Stack
-- **SQL** (Snowflake / PostgreSQL)
-- **Advanced Techniques:** CTEs, Window Functions (LAG/AVG), Anti-Joins, Regex Normalization.
-- **Data Domains:** Marketplace Intelligence, Competitive Forensics, Brand Protection.
-
----
-
-## Methodology
-The core of this project relies on **Residual Set Analysis**:
-`Market Data` - (`Internal Catalog` + `Known Competitors`) = **The Threat Actor.**
-
----
-
-## 📂 SQL Toolkit
-The forensic engine of this project is organized into three stages:
-1. [Identification Logic](./sql_queries/01_identification_logic.sql) - Isolating the Residual Set.
-2. [Impact Modeling](./sql_queries/02_financial_impact.sql) - Quantifying the $1.3M revenue drain.
-3. [Actor Attribution](./sql_queries/03_network_forensics.sql) - Identifying the coordinated "Mastermind" network.
+<p align="center">
+  <i>This project demonstrates the intersection of Data Engineering, Competitive Intelligence, and Strategic Business Recovery.</i>
+</p>
