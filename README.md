@@ -70,3 +70,11 @@ Aggregates forensic evidence (Seller Attribution + Review Bot signals) for marke
 ## Methodology
 The core of this project relies on **Residual Set Analysis**:
 `Market Data` - (`Internal Catalog` + `Known Competitors`) = **The Threat Actor.**
+
+---
+
+## 📂 SQL Toolkit
+The forensic engine of this project is organized into three stages:
+1. [Identification Logic](./sql_queries/01_identification_logic.sql) - Isolating the Residual Set.
+2. [Impact Modeling](./sql_queries/02_financial_impact.sql) - Quantifying the $1.3M revenue drain.
+3. [Actor Attribution](./sql_queries/03_network_forensics.sql) - Identifying the coordinated "Mastermind" network.
