@@ -8,7 +8,7 @@ WITH Ghost_Pressure AS (
         region,
         AVG(units_sold::NUMERIC / GREATEST(CURRENT_DATE - listing_date, 1) * 30)
             AS avg_monthly_pressure
-    FROM Marketplace_Data
+    FROM Residual_Set 
     GROUP BY region
 )
 SELECT
